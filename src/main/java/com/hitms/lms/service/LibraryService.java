@@ -21,7 +21,7 @@ public class LibraryService {
         return Optional.ofNullable(members.get(memberId));
     }
 
-    /** Returns the remaining available-copy count after the book is issued. */
+    /** Reports available inventory after checking out this book. */
     public int issueBook(int availableCopies, String title) throws BookUnavailableException {
         if (availableCopies <= 0) {
             throw new BookUnavailableException("No copies of \"" + title + "\" are available.");
