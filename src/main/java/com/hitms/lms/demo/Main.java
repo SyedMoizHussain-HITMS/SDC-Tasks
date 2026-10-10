@@ -1,5 +1,7 @@
 package com.hitms.lms.demo;
 
+import com.hitms.lms.model.Member;
+import com.hitms.lms.service.LibraryService;
 import com.hitms.lms.util.LibraryUtils;
 import java.time.LocalDate;
 
@@ -17,5 +19,10 @@ public final class Main {
                 LocalDate.of(2026, 10, 1), LocalDate.of(2026, 10, 15));
         System.out.println("Formatted title: " + title);
         System.out.println("Days between dates: " + loanPeriod);
+
+        LibraryService libraryService = new LibraryService();
+        libraryService.addMember(new Member("M001", "Ayesha Khan"));
+        System.out.println("Member M001 found: "
+                + libraryService.findMemberById("M001").isPresent());
     }
 }
