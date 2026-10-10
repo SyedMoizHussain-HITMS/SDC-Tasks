@@ -21,7 +21,7 @@ public class LibraryService {
         return Optional.ofNullable(members.get(memberId));
     }
 
-    /** Returns the remaining available-copy count after the book is issued. */
+    /** Returns the number of copies left after issuing one copy. */
     public int issueBook(int availableCopies, String title) throws BookUnavailableException {
         if (availableCopies <= 0) {
             throw new BookUnavailableException("No copies of \"" + title + "\" are available.");
