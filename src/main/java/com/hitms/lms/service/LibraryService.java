@@ -4,6 +4,7 @@ import com.hitms.lms.exception.BookUnavailableException;
 import com.hitms.lms.model.Member;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /** Provides operations for the library catalogue and its members. */
 public class LibraryService {
@@ -13,6 +14,11 @@ public class LibraryService {
     /** Adds or replaces a member using the member's identifier. */
     public void addMember(Member member) {
         members.put(member.getMemberId(), member);
+    }
+
+    /** Finds a member by identifier, if that member is registered. */
+    public Optional<Member> findMemberById(String memberId) {
+        return Optional.ofNullable(members.get(memberId));
     }
 
     /** Returns the remaining available-copy count after the book is issued. */
